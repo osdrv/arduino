@@ -22,13 +22,12 @@ void setup() {
   pinMode(yellow, OUTPUT);
   pinMode(green, OUTPUT);
 //  light(yellow_color);
-  blinkYellow();
 
   Ethernet.begin(mac, ip);
 //  Serial.begin(9600);
 //  Serial.println("connecting...");
 
-  delay(500);
+  blinkYellow();
 }
 
 void loop() {
@@ -52,7 +51,8 @@ void do_request() {
     if (!client.connected()) {
 //      Serial.println("some troubles");
       blinkYellow();
-      delay(10000);
+      blinkYellow();
+      blinkYellow();
     }
   }
 
@@ -90,7 +90,7 @@ void do_request() {
 }
 
 void blinkYellow() {
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 3; i++) {
     light_yellow();
     delay(500);
     no_light();
